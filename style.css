@@ -69,3 +69,18 @@ button:hover {
   border-radius: 10px;
   margin-bottom: 10px;
 }
+
+/* Delete button style inside cards */
+.customer-card button {
+  background: #cc0000;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  margin-top: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.customer-card button:hover {
+  background: #990000;
+}
