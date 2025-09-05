@@ -18,20 +18,38 @@
   </div>
 
   <script>
-    function login() {
-      const user = "admin";   // اسم المستخدم
-      const pass = "12345";   // كلمة المرور
+  (function(){
+      // Data is encoded & split into parts (harder to guess)
+      var _0xdata = [
+        "YWR",  "taW4=",      
+        "YW1p",       
+        "bmUyNzAyNw=="
+      ];
 
-      const u = document.getElementById("username").value;
-      const p = document.getElementById("password").value;
-
-      if (u === user && p === pass) {
-        localStorage.setItem("loggedIn", "true");
-        window.location.href = "admin.html";
-      } else {
-        alert("❌ اسم المستخدم أو كلمة المرور غير صحيحة!");
+      function decodeBase64(str) {
+          try { return atob(str); } catch(e){ return ""; }
       }
-    }
+
+      function getUser(){
+          return decodeBase64(_0xdata[0] + _0xdata[1]); // -> admin
+      }
+
+      function getPass(){
+          return decodeBase64(_0xdata[2] + _0xdata[3]); // -> amine27027
+      }
+
+      window.login = function(){
+          var u = document.getElementById("username").value;
+          var p = document.getElementById("password").value;
+
+          if(u === getUser() && p === getPass()){
+              localStorage.setItem("loggedIn","true");
+              window.location.href="admin.html";
+          } else {
+              alert("❌ اسم المستخدم أو كلمة المرور غير صحيحة!");
+          }
+      }
+  })();
   </script>
 </body>
 </html>
