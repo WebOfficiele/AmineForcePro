@@ -70,19 +70,54 @@ const customerList = document.getElementById("customerList");
 if (customerList) {
   (async () => {
     try {
-      const customers = await fetchCustomers();
-      if (!customers.length) {
-        customerList.innerHTML = "<p>No submissions yet.</p>";
-        return;
+      let customers = await fetchCustomers();
+
+      // Render customers with BMI + progress + delete
+      function render() {
+        if (!customers.length) {
+          customerList.innerHTML = "<p>No submissions yet.</p>";
+          return;
+        }
+        customerList.innerHTML = customers.map((c, i) => {
+          // Calculate BMI
+          let bmi = "-";
+          if (c.height && c.weight) {
+            let h = parseFloat(c.height) / 100; // convert cm to m
+            let w = parseFloat(c.weight);
+            if (h > 0) bmi = (w / (h * h)).toFixed(1);
+          }
+
+          // Example progress calculation (editable formula)
+          let progress = "-";
+          if (c.height && c.weight) {
+            progress = Math.min(100, Math.round((c.weight / c.height) * 10)) + "%";
+          }
+
+          return `
+            <div class="customer-card">
+              <h3>${c.firstName || ""} ${c.lastName || ""}</h3>
+              <p>Age: ${c.age || "-"}</p>
+              <p>Height: ${c.height || "-"} cm</p>
+              <p>Weight: ${c.weight || "-"} kg</p>
+              <p><b>BMI:</b> ${bmi}</p>
+              <p><b>Progress:</b> ${progress}</p>
+              <button onclick="deleteCustomer(${i})">🗑️ Delete</button>
+            </div>
+          `;
+        }).join("");
       }
-      customerList.innerHTML = customers.map(c => `
-        <div class="customer-card">
-          <h3>${c.firstName || ""} ${c.lastName || ""}</h3>
-          <p>Age: ${c.age || "-"}</p>
-          <p>Height: ${c.height || "-"} cm</p>
-          <p>Weight: ${c.weight || "-"} kg</p>
-        </div>
-      `).join("");
+
+      render();
+
+      // Delete function
+      window.deleteCustomer = async function(index) {
+        if (confirm("Are you sure you want to delete this customer?")) {
+          customers.splice(index, 1); // remove from array
+          await saveCustomers(customers); // save back to JSONbin
+          render(); // refresh list
+        }
+      };
+
     } catch (err) {
       console.error(err);
       customerList.innerHTML = `<p>❌ Error loading data. ${err.message}</p>`;
@@ -97,12 +132,9 @@ if (customerList && searchBox) {
 
   async function renderCustomers(filter = "") {
     try {
-      // Load customers only once
       if (!allCustomers.length) {
         allCustomers = await fetchCustomers();
       }
-
-      // Filter by first name if search text is provided
       let filtered = allCustomers;
       if (filter) {
         filtered = allCustomers.filter(c =>
@@ -110,31 +142,46 @@ if (customerList && searchBox) {
         );
       }
 
-      // If no results
       if (!filtered.length) {
         customerList.innerHTML = "<p>No results found.</p>";
         return;
       }
 
-      // Render filtered results
-      customerList.innerHTML = filtered.map(c => `
-        <div class="customer-card">
-          <h3>${c.firstName || ""} ${c.lastName || ""}</h3>
-          <p>Age: ${c.age || "-"}</p>
-          <p>Height: ${c.height || "-"} cm</p>
-          <p>Weight: ${c.weight || "-"} kg</p>
-        </div>
-      `).join("");
+      customerList.innerHTML = filtered.map((c, i) => {
+        // Calculate BMI
+        let bmi = "-";
+        if (c.height && c.weight) {
+          let h = parseFloat(c.height) / 100;
+          let w = parseFloat(c.weight);
+          if (h > 0) bmi = (w / (h * h)).toFixed(1);
+        }
+
+        // Example progress
+        let progress = "-";
+        if (c.height && c.weight) {
+          progress = Math.min(100, Math.round((c.weight / c.height) * 10)) + "%";
+        }
+
+        return `
+          <div class="customer-card">
+            <h3>${c.firstName || ""} ${c.lastName || ""}</h3>
+            <p>Age: ${c.age || "-"}</p>
+            <p>Height: ${c.height || "-"} cm</p>
+            <p>Weight: ${c.weight || "-"} kg</p>
+            <p><b>BMI:</b> ${bmi}</p>
+            <p><b>Progress:</b> ${progress}</p>
+            <button onclick="deleteCustomer(${i})">🗑️ Delete</button>
+          </div>
+        `;
+      }).join("");
     } catch (err) {
       console.error(err);
       customerList.innerHTML = `<p>❌ Error loading data. ${err.message}</p>`;
     }
   }
 
-  // Initial render
   renderCustomers();
 
-  // Re-render on input
   searchBox.addEventListener("input", (e) => {
     renderCustomers(e.target.value);
   });
