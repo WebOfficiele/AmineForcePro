@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>تسجيل الدخول</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { direction: rtl; }
+    input, button { text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>تسجيل الدخول</h1>
+    <input type="text" id="username" placeholder="اسم المستخدم">
+    <input type="password" id="password" placeholder="كلمة المرور">
+    <button onclick="login()">دخول</button>
+  </div>
+
+  <script>
+    function login() {
+      const user = "admin";   // اسم المستخدم
+      const pass = "12345";   // كلمة المرور
+
+      const u = document.getElementById("username").value;
+      const p = document.getElementById("password").value;
+
+      if (u === user && p === pass) {
+        localStorage.setItem("loggedIn", "true");
+        window.location.href = "admin.html";
+      } else {
+        alert("❌ اسم المستخدم أو كلمة المرور غير صحيحة!");
+      }
+    }
+  </script>
+</body>
+</html>
