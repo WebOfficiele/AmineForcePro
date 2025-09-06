@@ -6,12 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FitWithAmine - Join Now</title>
   <link rel="stylesheet" href="style.css">
-  <!-- Font Awesome for icons -->
+  <!-- Font Awesome for dumbbell icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
-  <!-- زر Login أعلى يسار -->
+  <!-- Login button top left -->
   <button onclick="window.location.href='login.html'" style="
       position:fixed;
       top:20px;
@@ -31,7 +31,7 @@
     🔑 Login
   </button>
 
-  <!-- New Title Frame -->
+  <!-- Title Frame -->
   <div class="title-frame">
     <i class="fa-solid fa-dumbbell"></i>
     <h1>FitWithAmine</h1>
@@ -42,7 +42,7 @@
     <!-- Hero Section -->
     <p style="font-size:16px; margin-bottom:25px;">
       Transform your body, improve your health, and achieve your goals with <b>FitWithAmine</b>.
-      Fill out the form below and let’s start your fitness journey today 🚀
+      Fill out the form below and let’s start your fitness journey today.
     </p>
 
     <!-- Form -->
@@ -51,19 +51,34 @@
       <div class="form-section card-box">
         <h2>🧑 Personal Info</h2>
 
-        <label for="firstName">First Name</label>
+        <label for="firstName">
+          <span class="label-en">First Name:</span>
+          <span class="label-ar">:الاسم</span>
+        </label>
         <input type="text" id="firstName" placeholder="John" required>
 
-        <label for="lastName">Last Name</label>
+        <label for="lastName">
+          <span class="label-en">Last Name:</span>
+          <span class="label-ar">:اللقب</span>
+        </label>
         <input type="text" id="lastName" placeholder="Doe" required>
 
-        <label for="age">Age</label>
+        <label for="age">
+          <span class="label-en">Age:</span>
+          <span class="label-ar">:العمر</span>
+        </label>
         <input type="number" id="age" placeholder="25" required>
 
-        <label for="height">Height (cm)</label>
+        <label for="height">
+          <span class="label-en">Height (cm):</span>
+          <span class="label-ar">:الطول</span>
+        </label>
         <input type="number" id="height" placeholder="175" required>
 
-        <label for="weight">Weight (kg)</label>
+        <label for="weight">
+          <span class="label-en">Weight (kg):</span>
+          <span class="label-ar">:الوزن</span>
+        </label>
         <input type="number" id="weight" placeholder="70" required>
       </div>
 
@@ -71,25 +86,40 @@
       <div class="form-section card-box">
         <h2>📊 Extra Info</h2>
 
-        <label for="muscle">Muscle Mass (kg)</label>
+        <label for="muscle">
+          <span class="label-en">Muscle Mass (kg):</span>
+          <span class="label-ar">:كتلة العضلات</span>
+        </label>
         <input type="number" id="muscle" placeholder="e.g. 60">
 
-        <label for="fat">Body Fat %</label>
+        <label for="fat">
+          <span class="label-en">Body Fat %:</span>
+          <span class="label-ar">:نسبة الدهون</span>
+        </label>
         <input type="number" id="fat" placeholder="e.g. 18">
 
-        <label for="waist">Waist Circumference (cm)</label>
+        <label for="waist">
+          <span class="label-en">Waist Circumference (cm):</span>
+          <span class="label-ar">:محيط الخصر</span>
+        </label>
         <input type="number" id="waist" placeholder="e.g. 85">
 
-        <label for="water">Water %</label>
+        <label for="water">
+          <span class="label-en">Water %:</span>
+          <span class="label-ar">:نسبة الماء</span>
+        </label>
         <input type="number" id="water" placeholder="e.g. 55">
 
-        <label for="goal">Goal</label>
+        <label for="goal">
+          <span class="label-en">Goal:</span>
+          <span class="label-ar">:الهدف</span>
+        </label>
         <input type="text" id="goal" placeholder="e.g. Gain muscle">
       </div>
     </form>
 
     <!-- Submit -->
-    <button type="submit" form="customerForm" class="submit-btn">🚀 Submit & Join</button>
+    <button type="submit" form="customerForm" class="submit-btn">Submit</button>
 
     <!-- Message -->
     <p id="message" style="text-align:center; margin-top:15px; font-size:14px;"></p>
