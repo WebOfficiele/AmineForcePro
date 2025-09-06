@@ -5,20 +5,26 @@ body {
   color: #fff;
   margin: 0;
   padding: 0;
+  overflow-x: hidden; /* stop sideways scrolling */
+}
+
+html {
+  overflow-x: hidden; /* double protection */
 }
 
 /* TITLE FRAME */
 .title-frame {
   width: 100%;
-  padding: 25px;
+  padding: 20px;
   background: rgba(0, 0, 0, 0.7);
   text-align: center;
   border-bottom: 3px solid #00ffcc;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 15px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  box-sizing: border-box; /* safe sizing */
 }
 
 .title-frame h1 {
@@ -28,22 +34,25 @@ body {
   color: #ffcc00;
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  word-break: break-word; /* avoid overflow */
 }
 
 .title-frame i {
-  font-size: 50px;
+  font-size: 40px;
   color: #00ffcc;
 }
 
 /* MAIN CONTAINER */
 .container {
-  width: 90%;
+  width: 100%;
   max-width: 1000px;
-  margin: 30px auto;
+  margin: 20px auto;
   background: rgba(0, 0, 0, 0.6);
-  padding: 25px;
+  padding: 20px;
   border-radius: 15px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -57,11 +66,13 @@ p {
   color: #ddd;
 }
 
-/* TWO COLUMN FORM (index.html) */
+/* TWO COLUMN FORM */
 .two-column-form {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 55px;
+  gap: 40px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .form-section h2 {
@@ -75,6 +86,8 @@ p {
   justify-content: space-between;
   align-items: center;
   margin: 14px 0 6px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .label-en {
@@ -97,6 +110,7 @@ p {
   border: none;
   border-radius: 8px;
   margin-bottom: 12px;
+  box-sizing: border-box;
 }
 
 .submit-btn {
@@ -109,18 +123,21 @@ p {
   font-size: 16px;
   cursor: pointer;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .submit-btn:hover {
   background: #e65c00;
 }
 
-/* DASHBOARD GRID (admin.html) */
+/* DASHBOARD GRID */
 .list {
   margin-top: 20px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .customer-card {
@@ -129,6 +146,7 @@ p {
   border-radius: 15px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.3);
   transition: transform 0.2s ease;
+  box-sizing: border-box;
 }
 
 .customer-card:hover {
@@ -172,18 +190,30 @@ p {
   text-decoration: underline;
 }
 
-/* Responsive */
+/* Responsive Fix */
 @media (max-width: 768px) {
   .two-column-form {
     grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .title-frame {
+    flex-direction: column;
+    gap: 8px;
   }
 
   .title-frame h1 {
     font-size: 28px;
+    text-align: center;
   }
 
   .title-frame i {
-    font-size: 22px;
+    font-size: 26px;
+  }
+
+  .container {
+    margin: 10px;
+    padding: 15px;
   }
 }
 
@@ -196,6 +226,7 @@ p {
   justify-content: center;
   background: linear-gradient(135deg, #1e3c72, #2a5298);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
 }
 
 .login-container {
@@ -203,6 +234,7 @@ p {
   align-items: center;
   justify-content: center;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .login-card {
@@ -211,9 +243,11 @@ p {
   border-radius: 20px;
   padding: 40px 30px;
   width: 350px;
+  max-width: 90%;
   text-align: center;
   box-shadow: 0 8px 25px rgba(0,0,0,0.4);
   color: #fff;
+  box-sizing: border-box;
 }
 
 .login-logo {
@@ -252,6 +286,7 @@ p {
   background: rgba(255,255,255,0.2);
   color: #fff;
   font-size: 14px;
+  box-sizing: border-box;
 }
 
 .login-card input::placeholder {
@@ -285,6 +320,7 @@ p {
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
+  box-sizing: border-box;
 }
 
 .login-card button:hover {
@@ -309,24 +345,4 @@ p {
 
 .remember-label span {
   white-space: nowrap;
-}
-
-/* Prevent horizontal scroll on mobile */
-html, body {
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-/* Make sure container adapts fully on small screens */
-.container {
-  width: 95%;
-  box-sizing: border-box;
-}
-
-/* Fix form columns on mobile */
-@media (max-width: 768px) {
-  .two-column-form {
-    grid-template-columns: 1fr;
-    gap: 25px; /* smaller gap on mobile */
-  }
 }
