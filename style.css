@@ -310,3 +310,23 @@ p {
 .remember-label span {
   white-space: nowrap;
 }
+
+/* Prevent horizontal scroll on mobile */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Make sure container adapts fully on small screens */
+.container {
+  width: 95%;
+  box-sizing: border-box;
+}
+
+/* Fix form columns on mobile */
+@media (max-width: 768px) {
+  .two-column-form {
+    grid-template-columns: 1fr;
+    gap: 25px; /* smaller gap on mobile */
+  }
+}
