@@ -1,160 +1,237 @@
 /* =====================
-   RESET & BASE STYLES
+   BODY BASE
 ===================== */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body.login-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+body {
+  font-family: Arial, sans-serif;
   background: linear-gradient(135deg, #1e3c72, #2a5298);
   color: #fff;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
   overflow-x: hidden;
 }
 
 /* =====================
-   LOGIN CONTAINER
+   TITLE FRAME
 ===================== */
-.login-container {
+.title-frame {
   width: 100%;
-  max-width: 400px;
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-}
-
-/* =====================
-   LOGIN CARD
-===================== */
-.login-card {
-  width: 100%;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  padding: 30px 25px;
+  padding: 25px;
+  background: rgba(0, 0, 0, 0.7);
   text-align: center;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-  color: #fff;
-}
-
-/* =====================
-   LOGO
-===================== */
-.login-logo {
+  border-bottom: 3px solid #00ffcc;
   display: flex;
+  align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
+  gap: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  flex-wrap: wrap;
 }
 
-.login-logo img {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #00ffcc;
-  box-shadow: 0 0 15px rgba(0, 191, 255, 0.7);
-  animation: glowPulse 3s infinite ease-in-out;
+.title-frame h1 {
+  font-size: 42px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #ffcc00;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-@keyframes glowPulse {
-  0% { box-shadow: 0 0 10px rgba(0,191,255,0.5); }
-  50% { box-shadow: 0 0 25px rgba(0,191,255,0.9); }
-  100% { box-shadow: 0 0 10px rgba(0,191,255,0.5); }
-}
-
-/* =====================
-   TEXT & INPUTS
-===================== */
-.login-card h2 {
-  margin-bottom: 25px;
-  font-size: 24px;
+.title-frame i {
+  font-size: 50px;
   color: #00ffcc;
 }
 
-.login-card input {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border: none;
-  border-radius: 10px;
-  background: rgba(255,255,255,0.2);
-  color: #fff;
-  font-size: 15px;
+/* =====================
+   MAIN CONTAINER
+===================== */
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 30px auto;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+  box-sizing: border-box;
 }
 
-.login-card input::placeholder {
+h1 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+p {
+  text-align: center;
+  font-size: 14px;
   color: #ddd;
 }
 
 /* =====================
-   OPTIONS & BUTTON
+   TWO COLUMN FORM
 ===================== */
-.login-options {
+.two-column-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px;
+}
+
+.form-section h2 {
+  color: #ffcc00;
+  margin-bottom: 10px;
+}
+
+.form-section label {
   display: flex;
   justify-content: space-between;
-  font-size: 12px;
-  margin: 10px 0 20px;
-}
-
-.login-options a {
-  color: #00ffcc;
-  text-decoration: none;
-}
-
-.login-options a:hover {
-  text-decoration: underline;
-}
-
-.remember-label {
-  display: flex;
   align-items: center;
-  gap: 6px;
-  cursor: pointer;
+  margin: 14px 0 6px;
+  padding: 0 5px;
 }
 
-.remember-label input[type="checkbox"] {
-  accent-color: #00ffcc;
-  transform: scale(1.2);
+.label-en {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.5px;
 }
 
-.login-card button {
+.label-ar {
+  font-size: 16px;
+  font-weight: 700;
+  color: #00ffcc;
+  letter-spacing: 0.5px;
+}
+
+.form-section input {
   width: 100%;
   padding: 12px;
-  background: #00bfff;
   border: none;
-  border-radius: 10px;
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  font-size: 15px;
+  box-sizing: border-box;
 }
 
-.login-card button:hover {
-  background: #0099cc;
+/* Submit button */
+.submit-btn {
+  margin-top: 20px;
+  background: #ff6600;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  transition: 0.3s;
+}
+
+.submit-btn:hover {
+  background: #e65c00;
+}
+
+/* =====================
+   DASHBOARD GRID (admin.html)
+===================== */
+.list {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.customer-card {
+  background: #1c1f26;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease;
+}
+
+.customer-card:hover {
+  transform: translateY(-5px);
+}
+
+.customer-card h3 {
+  margin-top: 0;
+  color: #00ffcc;
+  font-size: 18px;
+}
+
+.customer-card p {
+  margin: 4px 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.customer-card button {
+  background: #cc0000;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  margin-top: 10px;
+}
+
+.customer-card button:hover {
+  background: #990000;
+}
+
+.customer-card a {
+  color: #00ffcc;
+  text-decoration: none;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.customer-card a:hover {
+  text-decoration: underline;
 }
 
 /* =====================
    RESPONSIVE FIXES
 ===================== */
-@media (max-width: 480px) {
-  .login-card {
-    padding: 25px 15px;
+@media (max-width: 768px) {
+  .two-column-form {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 
-  .login-card h2 {
-    font-size: 20px;
+  .container {
+    margin: 10px;
+    padding: 20px 15px;
+    border-radius: 12px;
   }
 
-  .login-card input,
-  .login-card button {
+  .title-frame {
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+  }
+
+  .title-frame h1 {
+    font-size: 26px;
+    text-align: center;
+  }
+
+  .title-frame i {
+    font-size: 24px;
+  }
+
+  .label-en, .label-ar {
     font-size: 14px;
+  }
+
+  .form-section input {
+    padding: 14px;
+    font-size: 15px;
+  }
+
+  .submit-btn {
+    padding: 14px;
+    font-size: 17px;
   }
 }
