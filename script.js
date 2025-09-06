@@ -2,7 +2,7 @@
 const BIN_ID   = "68bb36c1d0ea881f4073162c";   // your bin id
 const API_KEY  = "$2a$10$FpSddJCx8IVth3u50X7kdeQbeDoXRYHcgCKQN9iqERYCEdut5mhqa"; // your X-Master-Key
 const BASE_URL = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
- /********************************/ 
+ /********************************/
 
 /******** FETCH & SAVE HELPERS ********/
 async function fetchCustomers() {
@@ -16,13 +16,11 @@ async function fetchCustomers() {
   const text = await res.text();
   if (!res.ok) throw new Error(`GET ${res.status}: ${text}`);
   const data = JSON.parse(text);
-
-  // Bin shape is always { "record": [ ... ] }
   return data.record || [];
 }
 
 async function saveCustomers(customers) {
-  const body = { record: customers }; // wrap inside { record: [] }
+  const body = { record: customers };
   const res = await fetch(BASE_URL, {
     method: "PUT",
     headers: {
@@ -49,6 +47,7 @@ if (form) {
       age:       document.getElementById("age").value,
       height:    document.getElementById("height").value,
       weight:    document.getElementById("weight").value
+      // ❌ ما في progress هنا
     };
 
     try {
@@ -72,7 +71,6 @@ if (customerList) {
     try {
       let customers = await fetchCustomers();
 
-      // Render customers with BMI + progress + delete
       function render() {
         if (!customers.length) {
           customerList.innerHTML = "<p>No submissions yet.</p>";
@@ -82,16 +80,12 @@ if (customerList) {
           // Calculate BMI
           let bmi = "-";
           if (c.height && c.weight) {
-            let h = parseFloat(c.height) / 100; // convert cm to m
+            let h = parseFloat(c.height) / 100;
             let w = parseFloat(c.weight);
             if (h > 0) bmi = (w / (h * h)).toFixed(1);
           }
 
-          // Example progress calculation (editable formula)
-          let progress = "-";
-          if (c.height && c.weight) {
-            progress = Math.min(100, Math.round((c.weight / c.height) * 10)) + "%";
-          }
+          let progress = c.progress || "0%";
 
           return `
             <div class="customer-card">
@@ -100,7 +94,7 @@ if (customerList) {
               <p>Height: ${c.height || "-"} cm</p>
               <p>Weight: ${c.weight || "-"} kg</p>
               <p><b>BMI:</b> ${bmi}</p>
-              <p><b>Progress:</b> ${progress}</p>
+              <p><b>Progress:</b> ${progress} <a href="#" onclick="editProgress(${i}); return false;">[edit]</a></p>
               <button onclick="deleteCustomer(${i})">🗑️ Delete</button>
             </div>
           `;
@@ -109,12 +103,27 @@ if (customerList) {
 
       render();
 
-      // Delete function
+      // Delete
       window.deleteCustomer = async function(index) {
         if (confirm("Are you sure you want to delete this customer?")) {
-          customers.splice(index, 1); // remove from array
-          await saveCustomers(customers); // save back to JSONbin
-          render(); // refresh list
+          customers.splice(index, 1);
+          await saveCustomers(customers);
+          render();
+        }
+      };
+
+      // Edit progress (numbers only)
+      window.editProgress = async function(index) {
+        let newProgress = prompt("Enter new progress (%) number only:", customers[index].progress || "0");
+        if (newProgress !== null) {
+          let num = parseInt(newProgress);
+          if (!isNaN(num) && num >= 0 && num <= 100) {
+            customers[index].progress = num + "%";
+            await saveCustomers(customers);
+            render();
+          } else {
+            alert("❌ Please enter a valid number between 0 and 100.");
+          }
         }
       };
 
@@ -148,7 +157,6 @@ if (customerList && searchBox) {
       }
 
       customerList.innerHTML = filtered.map((c, i) => {
-        // Calculate BMI
         let bmi = "-";
         if (c.height && c.weight) {
           let h = parseFloat(c.height) / 100;
@@ -156,11 +164,7 @@ if (customerList && searchBox) {
           if (h > 0) bmi = (w / (h * h)).toFixed(1);
         }
 
-        // Example progress
-        let progress = "-";
-        if (c.height && c.weight) {
-          progress = Math.min(100, Math.round((c.weight / c.height) * 10)) + "%";
-        }
+        let progress = c.progress || "0%";
 
         return `
           <div class="customer-card">
@@ -169,7 +173,7 @@ if (customerList && searchBox) {
             <p>Height: ${c.height || "-"} cm</p>
             <p>Weight: ${c.weight || "-"} kg</p>
             <p><b>BMI:</b> ${bmi}</p>
-            <p><b>Progress:</b> ${progress}</p>
+            <p><b>Progress:</b> ${progress} <a href="#" onclick="editProgress(${i}); return false;">[edit]</a></p>
             <button onclick="deleteCustomer(${i})">🗑️ Delete</button>
           </div>
         `;
