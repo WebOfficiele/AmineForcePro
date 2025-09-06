@@ -1,22 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>FitWithAmine - Dashboard</title>
+  <title>Admin - FitWithAmine</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <script>
+    // حماية الصفحة
     if (localStorage.getItem("loggedIn") !== "true") {
       window.location.href = "login.html";
     }
   </script>
-  <div class="container">
-    <h1>Customer Submissions</h1>
-<button onclick="logout()">تسجيل الخروج</button>
 
-<input type="text" id="searchBox" placeholder="🔍 ابحث بالاسم" style="margin-top:15px; padding:8px; border-radius:8px; width:100%;">
-    <div id="customerList" class="list"></div>
+  <div class="container">
+    <!-- Header -->
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <h1>Admin Dashboard</h1>
+      <button onclick="logout()"
+        style="background:#cc0000; border:none; color:white; padding:8px 15px; border-radius:8px; cursor:pointer;">
+        Logout
+      </button>
+    </div>
+
+    <!-- Search -->
+    <div style="margin:20px 0; text-align:center;">
+      <input type="text" id="searchBox" placeholder=" Search by First Name..."
+        style="padding:10px; width:70%; border-radius:8px; border:none;">
+    </div>
+
+    <!-- Customer List -->
+    <div class="list" id="customerList">
+      <!-- JS will generate customer cards -->
+    </div>
   </div>
 
   <script src="script.js"></script>
@@ -27,4 +45,5 @@
     }
   </script>
 </body>
+
 </html>
