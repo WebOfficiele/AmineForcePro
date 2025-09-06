@@ -1,36 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FitWithAmine - Join Now</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+  <!-- زر Login أعلى يسار -->
+  <button onclick="window.location.href='login.html'" style="
+      position:fixed;
+      top:20px;
+      left:20px;
+      padding:10px 20px;
+      border:none;
+      border-radius:12px;
+      background: rgba(0, 191, 255, 0.2);
+      backdrop-filter: blur(8px);
+      color:#fff;
+      font-weight:bold;
+      cursor:pointer;
+      box-shadow:0 4px 15px rgba(0,0,0,0.3);
+      transition:0.3s;
+    " onmouseover="this.style.background='rgba(0,191,255,0.35)';"
+    onmouseout="this.style.background='rgba(0,191,255,0.2)';">
+    🔑 Login
+  </button>
+
   <div class="container">
-    <h1>FitWithAmine</h1>
-    <p>Fill in your details and start your fitness journey with Amine</p>
-    
-    <form id="customerForm" class="form-box">
-      <label for="firstName">First Name</label>
-      <input type="text" id="firstName" required>
+    <!-- Hero Section -->
+    <h1>🏋️‍♂️ FitWithAmine</h1>
+    <p style="font-size:16px; margin-bottom:25px;">
+      Transform your body, improve your health, and achieve your goals with <b>FitWithAmine</b>.
+      Fill out the form below and let’s start your fitness journey today 🚀
+    </p>
 
-      <label for="lastName">Last Name</label>
-      <input type="text" id="lastName" required>
+    <!-- Form -->
+    <form id="customerForm" class="two-column-form">
+      <!-- Left Side -->
+      <div class="form-section card-box">
+        <h2>🧑 Personal Info</h2>
 
-      <label for="age">Age</label>
-      <input type="number" id="age" required>
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" placeholder="John" required>
 
-      <label for="height">Height (cm)</label>
-      <input type="number" id="height" required>
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" placeholder="Doe" required>
 
-      <label for="weight">Weight (kg)</label>
-      <input type="number" id="weight" required>
+        <label for="age">Age</label>
+        <input type="number" id="age" placeholder="25" required>
 
-      <button type="submit">Submit</button>
+        <label for="height">Height (cm)</label>
+        <input type="number" id="height" placeholder="175" required>
+
+        <label for="weight">Weight (kg)</label>
+        <input type="number" id="weight" placeholder="70" required>
+      </div>
+
+      <!-- Right Side -->
+      <div class="form-section card-box">
+        <h2>📊 Extra Info</h2>
+
+        <label for="muscle">Muscle Mass (kg)</label>
+        <input type="number" id="muscle" placeholder="e.g. 60">
+
+        <label for="fat">Body Fat %</label>
+        <input type="number" id="fat" placeholder="e.g. 18">
+
+        <label for="waist">Waist Circumference (cm)</label>
+        <input type="number" id="waist" placeholder="e.g. 85">
+
+        <label for="water">Water %</label>
+        <input type="number" id="water" placeholder="e.g. 55">
+
+        <label for="goal">Goal</label>
+        <input type="text" id="goal" placeholder="e.g. Gain muscle">
+      </div>
     </form>
-    <p id="message" style="text-align:center; margin-top:10px;"></p>
+
+    <!-- Submit -->
+    <button type="submit" form="customerForm" class="submit-btn">🚀 Submit & Join</button>
+
+    <!-- Message -->
+    <p id="message" style="text-align:center; margin-top:15px; font-size:14px;"></p>
   </div>
+
+  <!-- Footer -->
+  <p style="text-align:center; margin-top:30px; font-size:12px; color:#ccc;">
+    © 2025 FitWithAmine – All rights reserved.
+  </p>
 
   <script src="script.js"></script>
 </body>
+
 </html>
