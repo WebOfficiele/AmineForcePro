@@ -7,6 +7,34 @@ body {
   padding: 0;
 }
 
+/* TITLE FRAME */
+.title-frame {
+  width: 100%;
+  padding: 25px;
+  background: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  border-bottom: 3px solid #00ffcc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.title-frame h1 {
+  font-size: 42px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #ffcc00;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.title-frame i {
+  font-size: 50px;
+  color: #00ffcc;
+}
+
 /* MAIN CONTAINER */
 .container {
   width: 90%;
@@ -132,6 +160,14 @@ p {
   .two-column-form {
     grid-template-columns: 1fr;
   }
+
+  .title-frame h1 {
+    font-size: 28px;
+  }
+
+  .title-frame i {
+    font-size: 22px;
+  }
 }
 
 /* LOGIN PAGE */
@@ -237,22 +273,23 @@ p {
 .login-card button:hover {
   background: #0099cc;
 }
+
 /* Ensure checkbox and text are aligned */
 .remember-label {
   display: flex;
-  align-items: center;   /* يخليهم على نفس الخط */
-  gap: 6px;              /* مسافة صغيرة بين المربع والكلمة */
+  align-items: center;
+  gap: 6px;
   font-size: 12px;
   cursor: pointer;
 }
 
 .remember-label input[type="checkbox"] {
-  margin: 0;             /* يشيل المسافة الغريبة فوق */
-  accent-color: #00ffcc; /* لون المربع */
-  transform: scale(1.2); /* تكبير بسيط */
+  margin: 0;
+  accent-color: #00ffcc;
+  transform: scale(1.2);
   cursor: pointer;
 }
-.remember-label span {
-  white-space: nowrap;   /* يمنع الكلمة من الانقسام */
-}
 
+.remember-label span {
+  white-space: nowrap;
+}
