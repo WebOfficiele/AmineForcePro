@@ -1,14 +1,17 @@
 /* =====================
-   BODY BASE
+   BASE STYLES
 ===================== */
-body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #1e3c72, #2a5298);
-  color: #fff;
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  max-width: 100%;
-  overflow-x: hidden; /* Stop sideways scroll */
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: #fff;
+  overflow-x: hidden;
 }
 
 /* =====================
@@ -16,29 +19,27 @@ body {
 ===================== */
 .title-frame {
   width: 100%;
-  padding: 25px;
+  padding: 20px;
   background: rgba(0, 0, 0, 0.7);
   text-align: center;
   border-bottom: 3px solid #00ffcc;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 15px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-  flex-wrap: wrap;
 }
 
 .title-frame h1 {
-  font-size: 42px;
+  font-size: 36px;
   font-weight: bold;
-  letter-spacing: 2px;
   color: #ffcc00;
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 2px;
 }
 
 .title-frame i {
-  font-size: 50px;
+  font-size: 40px;
   color: #00ffcc;
 }
 
@@ -46,14 +47,13 @@ body {
    MAIN CONTAINER
 ===================== */
 .container {
-  width: 90%;
+  width: 95%;
   max-width: 1000px;
   margin: 30px auto;
   background: rgba(0, 0, 0, 0.6);
   padding: 25px;
   border-radius: 15px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.4);
-  box-sizing: border-box;
 }
 
 h1 {
@@ -68,12 +68,12 @@ p {
 }
 
 /* =====================
-   TWO COLUMN FORM
+   FORM STYLES
 ===================== */
 .two-column-form {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 55px;
+  gap: 40px;
 }
 
 .form-section h2 {
@@ -81,27 +81,22 @@ p {
   margin-bottom: 10px;
 }
 
-/* English left / Arabic right */
 .form-section label {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin: 14px 0 6px;
-  padding: 0 5px;
+  margin: 12px 0 6px;
 }
 
 .label-en {
   font-size: 16px;
-  font-weight: 700;
-  color: #ffffff;
-  letter-spacing: 0.5px;
+  font-weight: bold;
+  color: #fff;
 }
 
 .label-ar {
   font-size: 16px;
-  font-weight: 700;
+  font-weight: bold;
   color: #00ffcc;
-  letter-spacing: 0.5px;
 }
 
 .form-section input {
@@ -111,10 +106,9 @@ p {
   border-radius: 8px;
   margin-bottom: 12px;
   font-size: 15px;
-  box-sizing: border-box;
 }
 
-/* Submit button */
+/* Submit Button */
 .submit-btn {
   margin-top: 20px;
   background: #ff6600;
@@ -126,7 +120,7 @@ p {
   font-weight: bold;
   cursor: pointer;
   width: 100%;
-  transition: 0.3s;
+  transition: background 0.3s;
 }
 
 .submit-btn:hover {
@@ -134,7 +128,7 @@ p {
 }
 
 /* =====================
-   DASHBOARD GRID (admin.html)
+   DASHBOARD CARDS
 ===================== */
 .list {
   margin-top: 20px;
@@ -156,15 +150,13 @@ p {
 }
 
 .customer-card h3 {
-  margin-top: 0;
   color: #00ffcc;
   font-size: 18px;
 }
 
 .customer-card p {
-  margin: 4px 0;
   font-size: 14px;
-  line-height: 1.4;
+  margin: 4px 0;
 }
 
 .customer-card button {
@@ -172,8 +164,8 @@ p {
   border: none;
   padding: 8px 12px;
   border-radius: 8px;
-  cursor: pointer;
   color: white;
+  cursor: pointer;
   margin-top: 10px;
 }
 
@@ -185,7 +177,6 @@ p {
   color: #00ffcc;
   text-decoration: none;
   margin-left: 5px;
-  cursor: pointer;
 }
 
 .customer-card a:hover {
@@ -196,28 +187,27 @@ p {
    LOGIN PAGE
 ===================== */
 .login-body {
-  margin: 0;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, #1e3c72, #2a5298);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .login-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
 }
 
 .login-card {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border-radius: 20px;
-  padding: 40px 30px;
-  width: 350px;
+  padding: 30px;
+  width: 100%;
+  max-width: 350px;
   text-align: center;
   box-shadow: 0 8px 25px rgba(0,0,0,0.4);
   color: #fff;
@@ -291,14 +281,13 @@ p {
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  transition: 0.3s;
+  transition: background 0.3s;
 }
 
 .login-card button:hover {
   background: #0099cc;
 }
 
-/* Ensure checkbox and text are aligned */
 .remember-label {
   display: flex;
   align-items: center;
@@ -308,10 +297,8 @@ p {
 }
 
 .remember-label input[type="checkbox"] {
-  margin: 0;
   accent-color: #00ffcc;
   transform: scale(1.2);
-  cursor: pointer;
 }
 
 .remember-label span {
@@ -327,12 +314,6 @@ p {
     gap: 20px;
   }
 
-  .container {
-    margin: 10px;
-    padding: 20px 15px;
-    border-radius: 12px;
-  }
-
   .title-frame {
     flex-direction: column;
     gap: 10px;
@@ -341,29 +322,32 @@ p {
 
   .title-frame h1 {
     font-size: 26px;
-    text-align: center;
   }
 
   .title-frame i {
     font-size: 24px;
   }
 
-  .label-en, .label-ar {
-    font-size: 14px;
-  }
-
-  .form-section input {
-    padding: 14px;
-    font-size: 15px;
-  }
-
-  .submit-btn {
-    padding: 14px;
-    font-size: 17px;
+  .container {
+    padding: 20px 15px;
   }
 
   .login-card {
-    width: 90%;
     padding: 25px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    width: 100%;
+    padding: 20px 15px;
+  }
+
+  .submit-btn {
+    font-size: 16px;
+  }
+
+  .form-section input {
+    font-size: 14px;
   }
 }
