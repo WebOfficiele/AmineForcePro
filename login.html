@@ -1,28 +1,40 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>تسجيل الدخول</title>
+  <title>Login - FitWithAmine</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    body { direction: rtl; }
-    input, button { text-align: center; }
-  </style>
 </head>
-<body>
-  <div class="container">
-    <h1>تسجيل الدخول</h1>
-    <input type="text" id="username" placeholder="اسم المستخدم">
-    <input type="password" id="password" placeholder="كلمة المرور">
-    <button onclick="login()">دخول</button>
+<body class="login-body">
+  <div class="login-container">
+    <div class="login-card">
+      <!-- Local Logo -->
+      <div class="login-logo">
+        <img src="Logo.png" alt="Logo">
+      </div>
+
+      <h2>Welcome Back</h2>
+
+      <input type="text" id="username" placeholder="Username">
+      <input type="password" id="password" placeholder="Password">
+
+      <div class="login-options">
+        <label class="remember-label">
+          <input type="checkbox" id="remember"> <span>Remember me</span>
+        </label>
+        <a href="#" onclick="forgotPassword()">Forgot Password?</a>
+      </div>
+
+      <button onclick="login()">LOGIN</button>
+    </div>
   </div>
 
   <script>
-  (function(){
-      
+    (function(){
       var _0xdata = [
-        "YWR",  "taW4=",      
-        "YW1p",       
+        "YWR",
+        "taW4=",
+        "YW1p",
         "bmUyNzAyNw=="
       ];
 
@@ -31,11 +43,11 @@
       }
 
       function getUser(){
-          return decodeBase64(_0xdata[0] + _0xdata[1]); // -> admin
+          return decodeBase64(_0xdata[0] + _0xdata[1]);
       }
 
       function getPass(){
-          return decodeBase64(_0xdata[2] + _0xdata[3]); // -> amine27027
+          return decodeBase64(_0xdata[2] + _0xdata[3]);
       }
 
       window.login = function(){
@@ -46,10 +58,14 @@
               localStorage.setItem("loggedIn","true");
               window.location.href="admin.html";
           } else {
-              alert("❌ اسم المستخدم أو كلمة المرور غير صحيحة!");
+              alert("❌ Wrong username or password!");
           }
       }
-  })();
+
+      window.forgotPassword = function(){
+          alert("📩 For support contact:\nInstagram: daniel_cky_\nInstagram: oualid_ly16\nGmail: oualidyacine4@gmail.com");
+      }
+    })();
   </script>
 </body>
 </html>
