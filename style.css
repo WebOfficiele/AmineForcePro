@@ -61,7 +61,7 @@ p {
 .two-column-form {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 30px;
+  gap: 55px;
 }
 
 .form-section h2 {
