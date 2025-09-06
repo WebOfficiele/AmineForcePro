@@ -1,30 +1,31 @@
-/* BODY BASE */
+/* =====================
+   BODY BASE
+===================== */
 body {
   font-family: Arial, sans-serif;
   background: linear-gradient(135deg, #1e3c72, #2a5298);
   color: #fff;
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* stop sideways scrolling */
+  max-width: 100%;
+  overflow-x: hidden; /* Stop sideways scroll */
 }
 
-html {
-  overflow-x: hidden; /* double protection */
-}
-
-/* TITLE FRAME */
+/* =====================
+   TITLE FRAME
+===================== */
 .title-frame {
   width: 100%;
-  padding: 20px;
+  padding: 25px;
   background: rgba(0, 0, 0, 0.7);
   text-align: center;
   border-bottom: 3px solid #00ffcc;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
+  gap: 20px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-  box-sizing: border-box; /* safe sizing */
+  flex-wrap: wrap;
 }
 
 .title-frame h1 {
@@ -34,25 +35,25 @@ html {
   color: #ffcc00;
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  word-break: break-word; /* avoid overflow */
 }
 
 .title-frame i {
-  font-size: 40px;
+  font-size: 50px;
   color: #00ffcc;
 }
 
-/* MAIN CONTAINER */
+/* =====================
+   MAIN CONTAINER
+===================== */
 .container {
-  width: 100%;
+  width: 90%;
   max-width: 1000px;
-  margin: 20px auto;
+  margin: 30px auto;
   background: rgba(0, 0, 0, 0.6);
-  padding: 20px;
+  padding: 25px;
   border-radius: 15px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.4);
   box-sizing: border-box;
-  overflow-x: hidden;
 }
 
 h1 {
@@ -66,13 +67,13 @@ p {
   color: #ddd;
 }
 
-/* TWO COLUMN FORM */
+/* =====================
+   TWO COLUMN FORM
+===================== */
 .two-column-form {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  width: 100%;
-  box-sizing: border-box;
+  gap: 55px;
 }
 
 .form-section h2 {
@@ -80,14 +81,13 @@ p {
   margin-bottom: 10px;
 }
 
-/* Updated labels: English left, Arabic right */
+/* English left / Arabic right */
 .form-section label {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 14px 0 6px;
-  width: 100%;
-  box-sizing: border-box;
+  padding: 0 5px;
 }
 
 .label-en {
@@ -106,38 +106,41 @@ p {
 
 .form-section input {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   border: none;
   border-radius: 8px;
   margin-bottom: 12px;
+  font-size: 15px;
   box-sizing: border-box;
 }
 
+/* Submit button */
 .submit-btn {
   margin-top: 20px;
   background: #ff6600;
   color: white;
-  padding: 12px;
+  padding: 14px;
   border: none;
   border-radius: 10px;
-  font-size: 16px;
+  font-size: 17px;
+  font-weight: bold;
   cursor: pointer;
   width: 100%;
-  box-sizing: border-box;
+  transition: 0.3s;
 }
 
 .submit-btn:hover {
   background: #e65c00;
 }
 
-/* DASHBOARD GRID */
+/* =====================
+   DASHBOARD GRID (admin.html)
+===================== */
 .list {
   margin-top: 20px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
-  width: 100%;
-  box-sizing: border-box;
 }
 
 .customer-card {
@@ -146,7 +149,6 @@ p {
   border-radius: 15px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.3);
   transition: transform 0.2s ease;
-  box-sizing: border-box;
 }
 
 .customer-card:hover {
@@ -190,34 +192,9 @@ p {
   text-decoration: underline;
 }
 
-/* Responsive Fix */
-@media (max-width: 768px) {
-  .two-column-form {
-    grid-template-columns: 1fr;
-    gap: 25px;
-  }
-
-  .title-frame {
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .title-frame h1 {
-    font-size: 28px;
-    text-align: center;
-  }
-
-  .title-frame i {
-    font-size: 26px;
-  }
-
-  .container {
-    margin: 10px;
-    padding: 15px;
-  }
-}
-
-/* LOGIN PAGE */
+/* =====================
+   LOGIN PAGE
+===================== */
 .login-body {
   margin: 0;
   height: 100vh;
@@ -226,7 +203,6 @@ p {
   justify-content: center;
   background: linear-gradient(135deg, #1e3c72, #2a5298);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  overflow-x: hidden;
 }
 
 .login-container {
@@ -234,7 +210,6 @@ p {
   align-items: center;
   justify-content: center;
   width: 100%;
-  box-sizing: border-box;
 }
 
 .login-card {
@@ -243,11 +218,9 @@ p {
   border-radius: 20px;
   padding: 40px 30px;
   width: 350px;
-  max-width: 90%;
   text-align: center;
   box-shadow: 0 8px 25px rgba(0,0,0,0.4);
   color: #fff;
-  box-sizing: border-box;
 }
 
 .login-logo {
@@ -286,7 +259,6 @@ p {
   background: rgba(255,255,255,0.2);
   color: #fff;
   font-size: 14px;
-  box-sizing: border-box;
 }
 
 .login-card input::placeholder {
@@ -320,7 +292,6 @@ p {
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
-  box-sizing: border-box;
 }
 
 .login-card button:hover {
@@ -345,4 +316,54 @@ p {
 
 .remember-label span {
   white-space: nowrap;
+}
+
+/* =====================
+   RESPONSIVE FIXES
+===================== */
+@media (max-width: 768px) {
+  .two-column-form {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .container {
+    margin: 10px;
+    padding: 20px 15px;
+    border-radius: 12px;
+  }
+
+  .title-frame {
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+  }
+
+  .title-frame h1 {
+    font-size: 26px;
+    text-align: center;
+  }
+
+  .title-frame i {
+    font-size: 24px;
+  }
+
+  .label-en, .label-ar {
+    font-size: 14px;
+  }
+
+  .form-section input {
+    padding: 14px;
+    font-size: 15px;
+  }
+
+  .submit-btn {
+    padding: 14px;
+    font-size: 17px;
+  }
+
+  .login-card {
+    width: 90%;
+    padding: 25px 20px;
+  }
 }
