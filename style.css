@@ -1,5 +1,5 @@
 /* =====================
-   BASE STYLES
+   RESET & BASE STYLES
 ===================== */
 * {
   box-sizing: border-box;
@@ -21,7 +21,6 @@ body {
   width: 100%;
   padding: 20px;
   background: rgba(0, 0, 0, 0.7);
-  text-align: center;
   border-bottom: 3px solid #00ffcc;
   display: flex;
   flex-wrap: wrap;
@@ -29,6 +28,7 @@ body {
   justify-content: center;
   gap: 15px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  text-align: center;
 }
 
 .title-frame h1 {
@@ -68,7 +68,7 @@ p {
 }
 
 /* =====================
-   FORM STYLES
+   TWO COLUMN FORM
 ===================== */
 .two-column-form {
   display: grid;
@@ -85,6 +85,7 @@ p {
   display: flex;
   justify-content: space-between;
   margin: 12px 0 6px;
+  padding: 0 5px;
 }
 
 .label-en {
@@ -157,6 +158,7 @@ p {
 .customer-card p {
   font-size: 14px;
   margin: 4px 0;
+  line-height: 1.4;
 }
 
 .customer-card button {
@@ -192,25 +194,25 @@ p {
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, #1e3c72, #2a5298);
+  padding: 20px;
 }
 
 .login-container {
   width: 100%;
+  max-width: 400px;
   display: flex;
   justify-content: center;
-  padding: 20px;
 }
 
 .login-card {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border-radius: 20px;
-  padding: 30px;
-  width: 100%;
-  max-width: 350px;
+  padding: 30px 25px;
   text-align: center;
   box-shadow: 0 8px 25px rgba(0,0,0,0.4);
   color: #fff;
+  width: 100%;
 }
 
 .login-logo {
@@ -301,10 +303,6 @@ p {
   transform: scale(1.2);
 }
 
-.remember-label span {
-  white-space: nowrap;
-}
-
 /* =====================
    RESPONSIVE FIXES
 ===================== */
@@ -312,6 +310,12 @@ p {
   .two-column-form {
     grid-template-columns: 1fr;
     gap: 20px;
+  }
+
+  .container {
+    padding: 20px 15px;
+    margin: 10px;
+    border-radius: 12px;
   }
 
   .title-frame {
@@ -328,8 +332,16 @@ p {
     font-size: 24px;
   }
 
-  .container {
-    padding: 20px 15px;
+  .label-en, .label-ar {
+    font-size: 14px;
+  }
+
+  .form-section input {
+    font-size: 15px;
+  }
+
+  .submit-btn {
+    font-size: 16px;
   }
 
   .login-card {
@@ -339,15 +351,15 @@ p {
 
 @media (max-width: 480px) {
   .login-card {
-    width: 100%;
     padding: 20px 15px;
   }
 
-  .submit-btn {
-    font-size: 16px;
+  .login-card h2 {
+    font-size: 20px;
   }
 
-  .form-section input {
+  .login-card input,
+  .login-card button {
     font-size: 14px;
   }
 }
