@@ -69,9 +69,26 @@ p {
   margin-bottom: 10px;
 }
 
+/* Updated labels: English left, Arabic right */
 .form-section label {
-  display: block;
-  margin: 8px 0 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 14px 0 6px;
+}
+
+.label-en {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+.label-ar {
+  font-size: 16px;
+  font-weight: 700;
+  color: #00ffcc;
+  letter-spacing: 0.5px;
 }
 
 .form-section input {
