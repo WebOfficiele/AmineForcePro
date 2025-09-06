@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - FitWithAmine</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="login-body">
   <div class="login-container">
     <div class="login-card">
-      <!-- Local Logo -->
       <div class="login-logo">
         <img src="Logo.png" alt="Logo">
       </div>
@@ -31,39 +31,34 @@
 
   <script>
     (function(){
-      var _0xdata = [
-        "YWR",
-        "taW4=",
-        "YW1p",
-        "bmUyNzAyNw=="
-      ];
+      var _0xdata = ["YWR", "taW4=", "YW1p", "bmUyNzAyNw=="];
 
       function decodeBase64(str) {
-          try { return atob(str); } catch(e){ return ""; }
+        try { return atob(str); } catch(e){ return ""; }
       }
 
       function getUser(){
-          return decodeBase64(_0xdata[0] + _0xdata[1]);
+        return decodeBase64(_0xdata[0] + _0xdata[1]);
       }
 
       function getPass(){
-          return decodeBase64(_0xdata[2] + _0xdata[3]);
+        return decodeBase64(_0xdata[2] + _0xdata[3]);
       }
 
       window.login = function(){
-          var u = document.getElementById("username").value;
-          var p = document.getElementById("password").value;
+        var u = document.getElementById("username").value;
+        var p = document.getElementById("password").value;
 
-          if(u === getUser() && p === getPass()){
-              localStorage.setItem("loggedIn","true");
-              window.location.href="admin.html";
-          } else {
-              alert("❌ Wrong username or password!");
-          }
+        if(u === getUser() && p === getPass()){
+          localStorage.setItem("loggedIn","true");
+          window.location.href="admin.html";
+        } else {
+          alert("❌ Wrong username or password!");
+        }
       }
 
       window.forgotPassword = function(){
-          alert("📩 For support contact:\nInstagram: daniel_cky_\nInstagram: oualid_ly16\nGmail: oualidyacine4@gmail.com");
+        alert("📩 For support contact:\nInstagram: daniel_cky_\nInstagram: oualid_ly16\nGmail: oualidyacine4@gmail.com");
       }
     })();
   </script>
