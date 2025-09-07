@@ -23,9 +23,8 @@ body {
   background: rgba(0, 0, 0, 0.7);
   border-bottom: 3px solid #00ffcc;
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: center; /* Center everything */
   gap: 15px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.5);
   text-align: center;
@@ -304,6 +303,25 @@ p {
 }
 
 /* =====================
+   FOOTER
+===================== */
+.footer {
+  margin-top: 40px;
+  text-align: center;
+  padding: 20px;
+  color: #ccc;
+  background: rgba(0,0,0,0.5);
+  border-top: 2px solid #00ffcc;
+}
+
+.footer-logo {
+  width: 180px;
+  height: auto;
+  margin-bottom: 10px;
+  object-fit: contain;
+}
+
+/* =====================
    RESPONSIVE FIXES
 ===================== */
 @media (max-width: 768px) {
@@ -318,12 +336,6 @@ p {
     border-radius: 12px;
   }
 
-  .title-frame {
-    flex-direction: column;
-    gap: 10px;
-    padding: 15px;
-  }
-
   .title-frame h1 {
     font-size: 26px;
   }
@@ -336,16 +348,8 @@ p {
     font-size: 14px;
   }
 
-  .form-section input {
-    font-size: 15px;
-  }
-
-  .submit-btn {
-    font-size: 16px;
-  }
-
-  .login-card {
-    padding: 25px 20px;
+  .footer-logo {
+    width: 90px;
   }
 }
 
@@ -361,5 +365,9 @@ p {
   .login-card input,
   .login-card button {
     font-size: 14px;
+  }
+
+  .footer-logo {
+    width: 70px;
   }
 }
