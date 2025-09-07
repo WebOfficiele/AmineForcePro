@@ -38,7 +38,7 @@ body {
 }
 
 .title-frame i {
-  font-size: 40px;
+  font-size: 50px;
   color: #00ffcc;
 }
 
@@ -354,6 +354,35 @@ p {
 }
 
 @media (max-width: 480px) {
+  /* Title adjustments */
+  .title-frame i {
+    font-size: 35px;   /* bigger dumbbells */
+    position: relative;
+    top: -5px;         /* move a little higher */
+  }
+
+  .title-frame h1 {
+    font-size: 22px;
+  }
+
+  /* Intro paragraph */
+  .container p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* Force new line before "Fill out the form..." */
+  .container p b::after {
+    content: "\A";  /* line break */
+    white-space: pre;
+  }
+
+  /* Footer logo bigger */
+  .footer-logo {
+    width: 180px;   /* bigger than before */
+  }
+
+  /* Login card tweaks (unchanged except for context) */
   .login-card {
     padding: 20px 15px;
   }
@@ -366,8 +395,5 @@ p {
   .login-card button {
     font-size: 14px;
   }
-
-  .footer-logo {
-    width: 70px;
-  }
 }
+
