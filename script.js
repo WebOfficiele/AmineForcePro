@@ -195,25 +195,4 @@ if (customerList && searchBox) {
     renderCustomers(e.target.value);
   });
 }
-document.getElementById("customerForm").addEventListener("submit", function(event) {
-  // Collect form data
-  const customer = {
-    firstName: document.getElementById("firstName").value,
-    lastName: document.getElementById("lastName").value,
-    age: document.getElementById("age").value,
-    height: document.getElementById("height").value,
-    weight: document.getElementById("weight").value,
-    muscle: document.getElementById("muscle").value,
-    fat: document.getElementById("fat").value,
-    waist: document.getElementById("waist").value,
-    water: document.getElementById("water").value,
-    goal: document.getElementById("goal").value
-  };
 
-  // Save to localStorage for admin.html
-  let customers = JSON.parse(localStorage.getItem("customers")) || [];
-  customers.push(customer);
-  localStorage.setItem("customers", JSON.stringify(customers));
-
-  // IMPORTANT: don’t preventDefault → let Formspree also send the email
-});
