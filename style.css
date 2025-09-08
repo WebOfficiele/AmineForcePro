@@ -12,34 +12,59 @@ body {
   background: linear-gradient(135deg, #1e3c72, #2a5298);
   color: #fff;
   overflow-x: hidden;
+  line-height: 1.6;
 }
 
 /* =====================
-   TITLE FRAME
+   TOP LOGO
 ===================== */
-.title-frame {
-  width: 100%;
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.7);
-  border-bottom: 3px solid #00ffcc;
-  display: flex;
-  align-items: center;
-  justify-content: center; /* Center everything */
-  gap: 15px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+.top-logo {
   text-align: center;
+  margin: 25px 0 10px;
 }
 
-.title-frame h1 {
-  font-size: 36px;
-  font-weight: bold;
+.top-logo img {
+  width: 190px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* =====================
+   SITE TITLE UNDER LOGO
+===================== */
+.site-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.site-title h1 {
+  font-size: 60px;
+  font-weight: 900;
+  background: linear-gradient(90deg, #ffcc00, #ff6600);
   color: #ffcc00;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 12px rgba(255, 204, 0, 0.6);
   letter-spacing: 2px;
 }
 
-.title-frame i {
-  font-size: 50px;
+.site-title i {
+  font-size: 38px;
   color: #00ffcc;
+  text-shadow: 0 0 10px rgba(0, 255, 204, 0.6);
+}
+
+/* =====================
+   INTRO TEXT
+===================== */
+.intro-text {
+  font-size: 16px;
+  margin-bottom: 25px;
+  text-align: center;
+  color: #ddd;
 }
 
 /* =====================
@@ -48,22 +73,11 @@ body {
 .container {
   width: 95%;
   max-width: 1000px;
-  margin: 30px auto;
+  margin: 20px auto;
   background: rgba(0, 0, 0, 0.6);
   padding: 25px;
   border-radius: 15px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.4);
-}
-
-h1 {
-  text-align: center;
-  margin-bottom: 15px;
-}
-
-p {
-  text-align: center;
-  font-size: 14px;
-  color: #ddd;
 }
 
 /* =====================
@@ -315,7 +329,7 @@ p {
 }
 
 .footer-logo {
-  width: 180px;
+  width: 120px;
   height: auto;
   margin-bottom: 10px;
   object-fit: contain;
@@ -336,53 +350,38 @@ p {
     border-radius: 12px;
   }
 
-  .title-frame h1 {
-    font-size: 26px;
+  .site-title h1 {
+    font-size: 30px;
   }
 
-  .title-frame i {
+  .site-title i {
+    font-size: 28px;
+  }
+
+  .footer-logo {
+    width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-title h1 {
+    font-size: 37px;
+  }
+
+  .site-title i {
     font-size: 24px;
+    top: -2px;
+    position: relative;
   }
 
-  .label-en, .label-ar {
+  .intro-text {
     font-size: 14px;
   }
 
   .footer-logo {
     width: 90px;
   }
-}
 
-@media (max-width: 480px) {
-  /* Title adjustments */
-  .title-frame i {
-    font-size: 35px;   /* bigger dumbbells */
-    position: relative;
-    top: -5px;         /* move a little higher */
-  }
-
-  .title-frame h1 {
-    font-size: 22px;
-  }
-
-  /* Intro paragraph */
-  .container p {
-    font-size: 14px;
-    line-height: 1.5;
-  }
-
-  /* Force new line before "Fill out the form..." */
-  .container p b::after {
-    content: "\A";  /* line break */
-    white-space: pre;
-  }
-
-  /* Footer logo bigger */
-  .footer-logo {
-    width: 180px;   /* bigger than before */
-  }
-
-  /* Login card tweaks (unchanged except for context) */
   .login-card {
     padding: 20px 15px;
   }
@@ -396,4 +395,3 @@ p {
     font-size: 14px;
   }
 }
-
