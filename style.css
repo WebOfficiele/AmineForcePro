@@ -20,16 +20,16 @@ body {
 ===================== */
 .top-logo {
   text-align: center;
-  margin: 25px 0 10px;
+  margin: 20px 0 10px;
 }
 
 .top-logo img {
-  width: 240px;
+  width: 300px;
   height: auto;
   object-fit: contain;
 }
 
-/* ====================
+/* =====================
    SITE TITLE UNDER LOGO
 ===================== */
 .site-title {
@@ -41,12 +41,12 @@ body {
 }
 
 .site-title h1 {
-  font-size: 60px;
+  font-size: 42px;
   font-weight: 900;
   background: linear-gradient(90deg, #ffcc00, #ff6600);
-  color: #ffcc00;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  color: #ffcc00; /* fallback */
   text-shadow: 0 0 12px rgba(255, 204, 0, 0.6);
   letter-spacing: 2px;
 }
@@ -204,15 +204,22 @@ body {
 .login-body {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;   /* stack top logo, title, login card vertically */
   align-items: center;
-  justify-content: center;
   background: linear-gradient(135deg, #1e3c72, #2a5298);
   padding: 20px;
 }
 
-.login-container {
+.login-wrapper {
   width: 100%;
   max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-container {
+  width: 100%;
   display: flex;
   justify-content: center;
 }
@@ -329,7 +336,7 @@ body {
 }
 
 .footer-logo {
-  width: 200px;
+  width: 120px;
   height: auto;
   margin-bottom: 10px;
   object-fit: contain;
@@ -364,34 +371,44 @@ body {
 }
 
 @media (max-width: 480px) {
+  .top-logo img {
+    width: 240px;
+  }
+
+  .site-title {
+    gap: 6px;
+    margin-bottom: 15px;
+  }
+
   .site-title h1 {
     font-size: 37px;
+    line-height: 1.2;
   }
 
   .site-title i {
-    font-size: 24px;
-    top: -2px;
-    position: relative;
+    font-size: 20px;
   }
 
   .intro-text {
     font-size: 14px;
+    line-height: 1.4;
   }
 
   .footer-logo {
-    width: 175px;
+    width: 90px;
   }
 
   .login-card {
-    padding: 20px 15px;
+    padding: 18px 14px;
   }
 
   .login-card h2 {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .login-card input,
   .login-card button {
     font-size: 14px;
+    padding: 10px;
   }
 }
