@@ -8,27 +8,45 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="login-body">
-  <div class="login-container">
-    <div class="login-card">
-      <div class="login-logo">
-        <img src="Logo.png" alt="Logo">
+  <div class="login-wrapper">
+    <!-- Top Logo -->
+    <div class="top-logo">
+      <img src="iconamine.png" alt="Coach Logo">
+    </div>
+
+    <!-- Title with dumbbells -->
+    <div class="site-title">
+      <i class="fa-solid fa-dumbbell"></i>
+      <h1>AmineForcePro</h1>
+      <i class="fa-solid fa-dumbbell"></i>
+    </div>
+
+    <!-- Login container -->
+    <div class="login-container">
+      <div class="login-card">
+        <div class="login-logo">
+          <img src="Logo.png" alt="Logo">
+        </div>
+
+        <h2>Welcome Back</h2>
+
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+
+        <div class="login-options">
+          <label class="remember-label">
+            <input type="checkbox" id="remember"> <span>Remember me</span>
+          </label>
+          <a href="#" onclick="forgotPassword()">Forgot Password?</a>
+        </div>
+
+        <button onclick="login()">LOGIN</button>
       </div>
-
-      <h2>Welcome Back</h2>
-
-      <input type="text" id="username" placeholder="Username">
-      <input type="password" id="password" placeholder="Password">
-
-      <div class="login-options">
-        <label class="remember-label">
-          <input type="checkbox" id="remember"> <span>Remember me</span>
-        </label>
-        <a href="#" onclick="forgotPassword()">Forgot Password?</a>
-      </div>
-
-      <button onclick="login()">LOGIN</button>
     </div>
   </div>
+</body>
+
+
 
   <script>
     (function(){
@@ -64,4 +82,3 @@
     })();
   </script>
 </body>
-</html>
