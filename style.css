@@ -329,7 +329,7 @@ body {
 }
 
 .footer-logo {
-  width: 120px;
+  width: 200px;
   height: auto;
   margin-bottom: 10px;
   object-fit: contain;
@@ -379,7 +379,7 @@ body {
   }
 
   .footer-logo {
-    width: 90px;
+    width: 175px;
   }
 
   .login-card {
