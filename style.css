@@ -242,8 +242,8 @@ body {
 }
 
 .login-logo img {
-  width: 90px;
-  height: 90px;
+  width: 125px;
+  height: 125px;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid #00ffcc;
