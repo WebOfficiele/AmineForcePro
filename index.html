@@ -7,22 +7,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AmineForcePro - Join Now</title>
   <link rel="stylesheet" href="style.css">
-  <script src="https://kit.fontawesome.com/6fce6a3d6c.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+ 
 
-  <!-- Top Logo -->
-  <div class="top-logo">
-    <img src="iconamine.png" alt="Coach Logo">
-  </div>
+<!-- Top Logo -->
+<div class="top-logo">
+  <img src="iconamine.png" alt="Coach Logo">
+</div>
 
-  <!-- Title with dumbbells -->
-  <div class="site-title">
-    <i class="fa-solid fa-dumbbell"></i>
-    <h1>AmineForcePro</h1>
-    <i class="fa-solid fa-dumbbell"></i>
-  </div>
+<!-- Title with dumbbells -->
+<div class="site-title">
+  <i class="fa-solid fa-dumbbell"></i>
+  <h1>AmineForcePro</h1>
+  <i class="fa-solid fa-dumbbell"></i>
+</div>
+
+
 
   <div class="container">
     <!-- Hero Section -->
@@ -31,47 +33,41 @@
       Fill out the form below and let’s start your fitness journey today.
     </p>
 
-   
-
+    <!-- Form -->
+    <form id="customerForm" class="two-column-form">
       <!-- Left Side -->
       <div class="form-section card-box">
         <h2>🧑 Personal Info</h2>
-
-        
-        <form
-  action="https://formspree.io/f/xrbarnoz"
-  method="POST"
->
 
         <label for="firstName">
           <span class="label-en">First Name:</span>
           <span class="label-ar">:الاسم</span>
         </label>
-        <input type="text" id="firstName" name="firstName" placeholder="Example..." required>
+        <input type="text" id="firstName" placeholder="Example..." required>
 
         <label for="lastName">
           <span class="label-en">Last Name:</span>
           <span class="label-ar">:اللقب</span>
         </label>
-        <input type="text" id="lastName" name="lastName" placeholder="Example..." required>
+        <input type="text" id="lastName" placeholder="Example..." required>
 
         <label for="age">
           <span class="label-en">Age:</span>
           <span class="label-ar">:العمر</span>
         </label>
-        <input type="number" id="age" name="age" placeholder="21" required>
+        <input type="number" id="age" placeholder="21" required>
 
         <label for="height">
           <span class="label-en">Height (cm):</span>
           <span class="label-ar">:الطول</span>
         </label>
-        <input type="number" id="height" name="height" placeholder="175" required>
+        <input type="number" id="height" placeholder="175" required>
 
         <label for="weight">
           <span class="label-en">Weight (kg):</span>
           <span class="label-ar">:الوزن</span>
         </label>
-        <input type="number" id="weight" name="weight" placeholder="70" required>
+        <input type="number" id="weight" placeholder="70" required>
       </div>
 
       <!-- Right Side -->
@@ -82,36 +78,36 @@
           <span class="label-en">Muscle Mass (kg):</span>
           <span class="label-ar">:كتلة العضلات</span>
         </label>
-        <input type="number" id="muscle" name="muscle" placeholder="e.g. 60">
+        <input type="number" id="muscle" placeholder="e.g. 60">
 
         <label for="fat">
           <span class="label-en">Body Fat %:</span>
           <span class="label-ar">:نسبة الدهون</span>
         </label>
-        <input type="number" id="fat" name="fat" placeholder="e.g. 18">
+        <input type="number" id="fat" placeholder="e.g. 18">
 
         <label for="waist">
           <span class="label-en">Waist Circumference (cm):</span>
           <span class="label-ar">:محيط الخصر</span>
         </label>
-        <input type="number" id="waist" name="waist" placeholder="e.g. 85">
+        <input type="number" id="waist" placeholder="e.g. 85">
 
         <label for="water">
           <span class="label-en">Water %:</span>
           <span class="label-ar">:نسبة الماء</span>
         </label>
-        <input type="number" id="water" name="water" placeholder="e.g. 55">
+        <input type="number" id="water" placeholder="e.g. 55">
 
         <label for="goal">
           <span class="label-en">Goal:</span>
           <span class="label-ar">:الهدف</span>
         </label>
-        <input type="text" id="goal" name="goal" placeholder="e.g. Gain muscle">
+        <input type="text" id="goal" placeholder="e.g. Gain muscle">
       </div>
-
-      <!-- Submit -->
-      <button type="submit" class="submit-btn">Submit</button>
     </form>
+
+    <!-- Submit -->
+    <button type="submit" form="customerForm" class="submit-btn">Submit</button>
 
     <!-- Message -->
     <p id="message" style="text-align:center; margin-top:15px; font-size:14px;"></p>
@@ -125,4 +121,5 @@
 
   <script src="script.js"></script>
 </body>
+
 </html>
