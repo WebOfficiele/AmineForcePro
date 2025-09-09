@@ -1,9 +1,13 @@
-// script.js full logic including saving all new fields, BMI calculation with weight only, 
-// progress editable only from admin, search, delete, and render all fields in dashboard.
 /************ CONFIG ************/
 const BIN_ID   = "68bb36c1d0ea881f4073162c";
 const API_KEY  = "$2a$10$FpSddJCx8IVth3u50X7kdeQbeDoXRYHcgCKQN9iqERYCEdut5mhqa";
 const BASE_URL = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
+
+// EmailJS configuration
+const EMAILJS_SERVICE_ID = "service_snfkn5j";
+const EMAILJS_TEMPLATE_ID = "template_p0df738";
+const EMAILJS_PUBLIC_KEY = "VYDEkWyHOT53tC2OV";
+
 /********************************/
 
 async function fetchCustomers() {
@@ -38,6 +42,9 @@ async function saveCustomers(customers) {
 /******** FORM (index.html) ********/
 const form = document.getElementById("customerForm");
 if (form) {
+  // Initialize EmailJS
+  emailjs.init(EMAILJS_PUBLIC_KEY);
+
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const msgEl = document.getElementById("message");
@@ -56,11 +63,28 @@ if (form) {
     };
 
     try {
+      // Save customer data to JSONBin.io
       const customers = await fetchCustomers();
       customers.push(customer);
       await saveCustomers(customers);
 
-      msgEl.textContent = "✅ Your info has been submitted!";
+      // Send notification email via EmailJS
+      const emailParams = {
+        firstName: customer.firstName,
+        lastName: customer.lastName,
+        age: customer.age || "-",
+        height: customer.height || "-",
+        weight: customer.weight || "-",
+        muscle: customer.muscle || "-",
+        fat: customer.fat || "-",
+        waist: customer.waist || "-",
+        water: customer.water || "-",
+        goal: customer.goal || "-",
+      };
+
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, emailParams);
+
+      msgEl.textContent = "✅ Your info has been submitted! Admin notified.";
       form.reset();
     } catch (err) {
       console.error(err);
@@ -195,4 +219,3 @@ if (customerList && searchBox) {
     renderCustomers(e.target.value);
   });
 }
-
