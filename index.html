@@ -1,77 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" href="https://img.icons8.com/ios7/600w/FFFFFF/dumbbell.png" type="image/x-icon">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AmineForcePro</title>
+  <title>AmineForcePro - Join Now</title>
   <link rel="stylesheet" href="style.css">
-  <script src="https://kit.fontawesome.com/7b2970a482.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.emailjs.com/sdk/2.4.0/email.min.js"></script>
 </head>
-<body>
-  <div class="top-logo">
-    <img src="https://via.placeholder.com/300x100?text=AmineForcePro+Logo" alt="AmineForcePro Logo">
-  </div>
 
-  <div class="site-title">
-    <i class="fas fa-dumbbell"></i>
-    <h1>AmineForcePro</h1>
-    <i class="fas fa-dumbbell"></i>
-  </div>
+<body>
+ 
+
+<!-- Top Logo -->
+<div class="top-logo">
+  <img src="iconamine.png" alt="Coach Logo">
+</div>
+
+<!-- Title with dumbbells -->
+<div class="site-title">
+  <i class="fa-solid fa-dumbbell"></i>
+  <h1>AmineForcePro</h1>
+  <i class="fa-solid fa-dumbbell"></i>
+</div>
+
+
 
   <div class="container">
-    <div class="intro-text">
-      <p>Transform your body, improve your health, and achieve your goals with FitWithAmine</p>
-      <p>Fill out the form below and let’s start your fitness journey today.</p>
-    </div>
+    <!-- Hero Section -->
+    <p class="intro-text">
+      Transform your body, improve your health, and achieve your goals with <b>FitWithAmine</b><br>
+      Fill out the form below and let’s start your fitness journey today.
+    </p>
 
+    <!-- Form -->
     <form id="customerForm" class="two-column-form">
-      <div class="form-section">
+      <!-- Left Side -->
+      <div class="form-section card-box">
         <h2>🧑 Personal Info</h2>
-        <label><span class="label-en">First Name:</span><span class="label-ar">:الاسم</span></label>
-        <input type="text" id="firstName" required>
 
-        <label><span class="label-en">Last Name:</span><span class="label-ar">:اللقب</span></label>
-        <input type="text" id="lastName" required>
+        <label for="firstName">
+          <span class="label-en">First Name:</span>
+          <span class="label-ar">:الاسم</span>
+        </label>
+        <input type="text" id="firstName" placeholder="Example..." required>
 
-        <label><span class="label-en">Age:</span><span class="label-ar">:العمر</span></label>
-        <input type="number" id="age">
+        <label for="lastName">
+          <span class="label-en">Last Name:</span>
+          <span class="label-ar">:اللقب</span>
+        </label>
+        <input type="text" id="lastName" placeholder="Example..." required>
 
-        <label><span class="label-en">Height (cm):</span><span class="label-ar">:الطول</span></label>
-        <input type="number" id="height">
+        <label for="age">
+          <span class="label-en">Age:</span>
+          <span class="label-ar">:العمر</span>
+        </label>
+        <input type="number" id="age" placeholder="21" required>
 
-        <label><span class="label-en">Weight (kg):</span><span class="label-ar">:الوزن</span></label>
-        <input type="number" id="weight">
+        <label for="height">
+          <span class="label-en">Height (cm):</span>
+          <span class="label-ar">:الطول</span>
+        </label>
+        <input type="number" id="height" placeholder="175" required>
+
+        <label for="weight">
+          <span class="label-en">Weight (kg):</span>
+          <span class="label-ar">:الوزن</span>
+        </label>
+        <input type="number" id="weight" placeholder="70" required>
       </div>
 
-      <div class="form-section">
+      <!-- Right Side -->
+      <div class="form-section card-box">
         <h2>📊 Extra Info</h2>
-        <label><span class="label-en">Muscle Mass (kg):</span><span class="label-ar">:كتلة العضلات</span></label>
-        <input type="number" id="muscle">
 
-        <label><span class="label-en">Body Fat %:</span><span class="label-ar">:نسبة الدهون</span></label>
-        <input type="number" id="fat">
+        <label for="muscle">
+          <span class="label-en">Muscle Mass (kg):</span>
+          <span class="label-ar">:كتلة العضلات</span>
+        </label>
+        <input type="number" id="muscle" placeholder="e.g. 60">
 
-        <label><span class="label-en">Waist Circumference (cm):</span><span class="label-ar">:محيط الخصر</span></label>
-        <input type="number" id="waist">
+        <label for="fat">
+          <span class="label-en">Body Fat %:</span>
+          <span class="label-ar">:نسبة الدهون</span>
+        </label>
+        <input type="number" id="fat" placeholder="e.g. 18">
 
-        <label><span class="label-en">Water %:</span><span class="label-ar">:نسبة الماء</span></label>
-        <input type="number" id="water">
+        <label for="waist">
+          <span class="label-en">Waist Circumference (cm):</span>
+          <span class="label-ar">:محيط الخصر</span>
+        </label>
+        <input type="number" id="waist" placeholder="e.g. 85">
 
-        <label><span class="label-en">Goal:</span><span class="label-ar">:الهدف</span></label>
-        <input type="text" id="goal">
+        <label for="water">
+          <span class="label-en">Water %:</span>
+          <span class="label-ar">:نسبة الماء</span>
+        </label>
+        <input type="number" id="water" placeholder="e.g. 55">
+
+        <label for="goal">
+          <span class="label-en">Goal:</span>
+          <span class="label-ar">:الهدف</span>
+        </label>
+        <input type="text" id="goal" placeholder="e.g. Gain muscle">
       </div>
-
-      <button type="submit" class="submit-btn">Submit</button>
-      <p id="message"></p>
     </form>
+
+    <!-- Submit -->
+    <button type="submit" form="customerForm" class="submit-btn">Submit</button>
+
+    <!-- Message -->
+    <p id="message" style="text-align:center; margin-top:15px; font-size:14px;"></p>
   </div>
 
+  <!-- Footer -->
   <footer class="footer">
-    <img src="https://via.placeholder.com/120x40?text=Footer+Logo" alt="Footer Logo" class="footer-logo">
+    <img src="iconamine.png" alt="Coach Logo" class="footer-logo">
     <p>© 2025 FitWithAmine – All rights reserved.</p>
   </footer>
 
   <script src="script.js"></script>
 </body>
+
 </html>
