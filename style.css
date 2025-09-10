@@ -318,9 +318,14 @@ body {
   cursor: pointer;
 }
 
-.remember-label input[type="checkbox"] {
-  accent-color: #00ffcc;
-  transform: scale(1.2);
+remember-label input[type="checkbox"] {
+  margin: 0;             
+  accent-color: #00ffcc; 
+  transform: scale(1.2); 
+  cursor: pointer;
+}
+.remember-label span {
+  white-space: nowrap;   
 }
 
 /* =====================
